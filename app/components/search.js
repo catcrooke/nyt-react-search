@@ -7,8 +7,8 @@ var helpers = require('../utils/helpers');
 var Search = React.createClass({ 
 	getInitialState() {
 		term: 0,
-		start: 0,
-		end: 0
+		startDate: 0,
+		endDate: 0
 	},
 	onSubmit: function() {
 		// helpers.runQuery(this.state.term, this.state.startDate, this.state.endDate) {

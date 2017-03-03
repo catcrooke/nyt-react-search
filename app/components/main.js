@@ -1,5 +1,5 @@
  // * **Main** - main-container div that holds the main layout and navigation. 
- // This component should also be able to hold sub-components Search and Saved
+
 var React = require('react');
 var newArticle = require('./newarticle');
 var Results = require('./results');
@@ -27,6 +27,7 @@ var Main = React.createClass({
 				  </div>
 				</nav>		
 			</div>
+			 // This component should also be able to hold sub-components Search and Saved
 		)
 	}
 
