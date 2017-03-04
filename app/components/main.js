@@ -1,12 +1,24 @@
  // * **Main** - main-container div that holds the main layout and navigation. 
 
+var helpers = require('../utils/helpers');
 var React = require('react');
-var newArticle = require('./newarticle');
+// var newArticle = require('./newarticle');
 var Results = require('./results');
-var Saved = require('./saved');
+// var Saved = require('./saved');
 var Search = require('./search');
 
 var Main = React.createClass({
+	getInitialState() {
+    	return {results: []};	
+  	},
+
+	getQuery: function(term, start, end){
+		return helpers.runQuery(term, start, end).then(function(result){
+			console.log(result);
+			this.setState({results: result}.bind(this));
+		});
+	},
+
 	render: function() {
 		return (
 			<div> 
@@ -18,14 +30,14 @@ var Main = React.createClass({
 				<nav className="navbar navbar-default navbar-fixed-top">
 				  <div className="container">
 				    	<ul>
-				    		<li> <a href="#/main"</a> Main</li>
-				    		<li> <a href="#/search"</a> Search</li>
-							<li> <a href="#/saved"</a> Saved</li>
-							// <li> <a href="#/saved"</a> Results</li>
-							// <li> <a href="#/newArticle"</a> New Article</li>
+				    		<li> <a href="#/main">Main</a></li>
+				    		<li> <a href="#/search">Search</a></li>
+							<li> <a href="#/saved">Saved</a></li>
 						</ul>
 				  </div>
 				</nav>		
+				<Search getQuery={this.getQuery}></Search>
+				<Results results={this.state.results}></Results>
 			</div>
 			 // This component should also be able to hold sub-components Search and Saved
 		)

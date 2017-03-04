@@ -6,9 +6,7 @@ var router = express.Router();
 //  * `*` (get) - will load your single HTML page (with ReactJS) in public/index.html.
 // Main "/" route. Will redirect to our rendered react application
 // React app will control the application, can use * instead of /
-router.get('*', function (req, res){
-	res.SendFile(_dirname + "/public/index.html");
-});
+
 
 // * `/api/saved` (get) - your components will use this to query MongoDB for all saved articles
 router.get('/api/saved', function(request, response){
@@ -28,6 +26,10 @@ router.post('/api/saved', function(request, response){
 router.delete('/api/saved', function(request, response){
 // delete .find, .remove mongoose functions
 
+});
+
+router.get('*', function (req, res){
+	res.sendFile(__dirname + "/public/index.html");
 });
 
 module.exports = router;

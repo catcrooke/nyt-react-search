@@ -1,40 +1,44 @@
- // * **Search** - queries the NYT API for articles. Displays API search results from another 
- // possible **Query** component and **Results** component. Gives the user the ability to save 
- // an article to their Saved Articles.
+ // * **Search** - queries the NYT API for articles. Displays API search results from another **Query** component 
+ // **Results** component. Gives the user the ability to save an article to their Saved Articles.
 // require helpers file 
-var helpers = require('../utils/helpers');
+var React = require("react");
 
 var Search = React.createClass({ 
-	getInitialState() {
-		term: 0,
-		startDate: 0,
-		endDate: 0
-	},
-	onSubmit: function() {
-		// helpers.runQuery(this.state.term, this.state.startDate, this.state.endDate) {
-
-		// }
-	},
-	onChange: function() {
-		this.setState({
+	getInitialState: function() {
+		return {
 			term: '',
 			start: '',
-			end: ''
-		})
+			end: ''		
+		};
 	},
-	render:function() {
+	onSubmit: function(e) {
+		e.preventDefault()
+		console.log('submitted')
+		this.props.getQuery(this.state.term, this.state.start, this.state.end)
 
-		
+		// })
+	},
+	onChange: function(e) {
+		console.log('changing');
+		var value = e.target.value;
+		var id = e.target.id;
+			
+		var updatedState = {};
+		updatedState[id] = value;
+		this.setState(updatedState);
+	},
+	render:function() {		
 		return (
 	 	<div>
-	 		<form>
-		 		<input type="text" id="term" value={/* value */} onChange={/* */}> </input>
-		 		<input type="text" id="start" value={/* value */} onChange={/* */}> </input>
-		 		<input type="text" id="end" value={/* value */} onChange={/* */}> </input>
-		 		<input type="Submit" value="Submit"/>
+	 		<form onSubmit={this.onSubmit}>
+		 		<input type="text" id="term" value={this.state.term} onChange={this.onChange}/>
+		 		<input type="text" id="start" value={this.state.startDate} onChange={this.onChange}/> 
+		 		<input type="text" id="end" value={this.state.endDate} onChange={this.onChange}/> 
+		 		<button>Submit</button>
 	 		</form>
 	 	</div>
 		)
 	}
-
 });
+
+module.exports = Search;

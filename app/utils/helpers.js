@@ -6,7 +6,7 @@ var helpers = {
 
 	runQuery: function(term, start, end) {
 		var params = {
-			'api-key': NYT_API_KEY,
+			// 'api-key': NYT_API_KEY,
 			'term': term,
 			'start': start,
 			'end': end
@@ -14,12 +14,19 @@ var helpers = {
 		// params.term = term;
 		// params.start = start;
 		// params.end = end;
-		return axios.get('https://api.nytimes.com', params)
+
+		// Based on the queryTerm we will create a queryURL 
+		var queryURLBase = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + NYT_API_KEY + "&q=" + term + "&begin_date=" + start + "&end_date=" + end;
+		console.log(queryURLBase);
+		return axios.get(queryURLBase, params)
 			.then(function (response) {
-			    console.log(response);
+			    // console.log(response);
+			    return response.data.response.docs;
 			 })
 			.catch(function (error) {
+
 				console.log(error);
+				return[];
 			});
 	},
 
@@ -28,7 +35,6 @@ var helpers = {
 	},
 
 	//postSaved, and deleteSaved functions
-
 
 };
 

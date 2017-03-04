@@ -1,8 +1,8 @@
 // go to react-router docs to require/write routes
 // require Saved and Main components
-require Main = ('../components/main');
-require Saved = ('../components/saved');
-
+var Main = require ('../components/main');
+var Saved = require ('../components/saved');
+var React = require("react");
 
 // module.exports = (
 
