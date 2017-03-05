@@ -2,9 +2,9 @@
 
 var helpers = require('../utils/helpers');
 var React = require('react');
-// var newArticle = require('./newarticle');
+var Article = require('./article');
 var Results = require('./results');
-// var Saved = require('./saved');
+var Saved = require('./saved');
 var Search = require('./search');
 
 var Main = React.createClass({
@@ -15,8 +15,8 @@ var Main = React.createClass({
 	getQuery: function(term, start, end){
 		return helpers.runQuery(term, start, end).then(function(result){
 			console.log(result);
-			this.setState({results: result}.bind(this));
-		});
+			this.setState({results: result});
+		}.bind(this));
 	},
 
 	render: function() {
@@ -38,6 +38,7 @@ var Main = React.createClass({
 				</nav>		
 				<Search getQuery={this.getQuery}></Search>
 				<Results results={this.state.results}></Results>
+				<SavedArticles results={this.state.articles}></Saved>
 			</div>
 			 // This component should also be able to hold sub-components Search and Saved
 		)
