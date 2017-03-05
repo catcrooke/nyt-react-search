@@ -1,4 +1,4 @@
-// * **Saved** - displays one Saved Article that were searched and stored in the database
+// * **Saved** - displays one Saved Article that was searched and stored in the database
 
 // // require helpers file 
 var helpers = require('../utils/helpers');
@@ -20,7 +20,7 @@ var savedArticle = React.createClass({
 			<div>
 				<div>{this.props.name}</div>
 				<div>{this.props.date}</div>				
-				<div>{this.props.url}</div>		
+				<div>{this.props.url}</div>	
 			</div>
 		)
 	} 

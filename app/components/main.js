@@ -4,8 +4,9 @@ var helpers = require('../utils/helpers');
 var React = require('react');
 var Article = require('./article');
 var Results = require('./results');
-var Saved = require('./saved');
+var savedArticle = require('./saved');
 var Search = require('./search');
+var savedArticles = require('./savedarticles');
 
 var Main = React.createClass({
 	getInitialState() {
@@ -37,6 +38,7 @@ var Main = React.createClass({
 				<Search getQuery={this.getQuery}></Search>
 				<Results results={this.state.results}></Results>
 				<savedArticles results={this.state.articles}></savedArticles>
+				<Saved results={this.state.article}></Saved>
 			</div>
 			 
 		)

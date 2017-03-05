@@ -5,7 +5,7 @@
 // // require helpers file 
 var helpers = require('../utils/helpers');
 var React = require("react");
-var savedArticle = require('./savedArticle'); 
+var savedArticle = require('./saved'); 
 
 var savedArticles = React.createClass({ 
 
