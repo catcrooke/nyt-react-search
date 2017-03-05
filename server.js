@@ -17,6 +17,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static('./public'));
 var routing = require('./routes/routes.js');
 app.use(routing);
+var db = require('./connection.js');
 
 // Starts the server to begin listening
 app.listen(PORT, function() {

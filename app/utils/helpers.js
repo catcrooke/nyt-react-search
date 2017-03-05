@@ -34,6 +34,14 @@ var helpers = {
 
 	},
 
+	postSaved: function(title, date, url) {
+		var newArticle = { title: title, date: date, url: url };
+
+		return axios.post('/api/saved', newArticle)
+					.then(function(results) {
+						return results;
+					});
+	}
 	//postSaved, and deleteSaved functions
 
 };

@@ -2,6 +2,7 @@
  // **Results** component. Gives the user the ability to save an article to their Saved Articles.
 // require helpers file 
 var React = require("react");
+var helpers = require('../utils/helpers.js');
 
 var Search = React.createClass({ 
 	getInitialState: function() {
@@ -13,7 +14,7 @@ var Search = React.createClass({
 	},
 	onSubmit: function(e) {
 		e.preventDefault()
-		console.log('submitted')
+		console.log(e)
 		this.props.getQuery(this.state.term, this.state.start, this.state.end)
 
 		// })

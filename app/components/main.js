@@ -9,7 +9,7 @@ var Search = require('./search');
 var savedArticles = require('./savedarticles');
 
 var Main = React.createClass({
-	getInitialState() {
+	getInitialState: function() {
     	return {results: []};	
   	},
 
@@ -37,8 +37,7 @@ var Main = React.createClass({
 				</nav>		
 				<Search getQuery={this.getQuery}></Search>
 				<Results results={this.state.results}></Results>
-				<savedArticles results={this.state.articles}></savedArticles>
-				<savedArticle results={this.state.article}></savedArticle>
+				<Article></Article>
 			</div>
 			 
 		)

@@ -8,8 +8,8 @@ var Results = React.createClass({
 
 
 		console.log(this.props.result);
-		var articles = this.props.results.map(function (article){
-			return (<Article name={article.headline.main} key={article._id} date={article.pub_date} url={article.web_url}  />)
+		var articles = this.props.results.map(function (article, index){
+			return (<Article name={article.headline.main} key={index} date={article.pub_date} url={article.web_url}  />)
 		});
 
 		return(
