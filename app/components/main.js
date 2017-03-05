@@ -25,8 +25,6 @@ var Main = React.createClass({
 				<div className="jumbotron">
 					<h1 className="text-center"><strong><i className="fa fa-newspaper-o"></i> New York Times React Search</strong></h1>
 				</div>
-
-				{/*Row for Searching New York Times*/}
 				<nav className="navbar navbar-default navbar-fixed-top">
 				  <div className="container">
 				    	<ul>
@@ -38,9 +36,9 @@ var Main = React.createClass({
 				</nav>		
 				<Search getQuery={this.getQuery}></Search>
 				<Results results={this.state.results}></Results>
-				<SavedArticles results={this.state.articles}></Saved>
+				<savedArticles results={this.state.articles}></savedArticles>
 			</div>
-			 // This component should also be able to hold sub-components Search and Saved
+			 
 		)
 	}
 

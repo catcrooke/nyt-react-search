@@ -1,4 +1,4 @@
-// * **Saved** - displays the Saved Articles that were searched and stored in the database
+// * **Saved** - displays one Saved Article that were searched and stored in the database
 
 // // require helpers file 
 var helpers = require('../utils/helpers');
@@ -27,7 +27,3 @@ var savedArticle = React.createClass({
 });
 
 module.exports = savedArticle;
-
-// 	{This main panel will hold each of the resulting articles}
-// 	<div className="panel-body" id="wellSection">
-// 	</div>
