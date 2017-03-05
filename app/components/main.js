@@ -38,7 +38,7 @@ var Main = React.createClass({
 				<Search getQuery={this.getQuery}></Search>
 				<Results results={this.state.results}></Results>
 				<savedArticles results={this.state.articles}></savedArticles>
-				<Saved results={this.state.article}></Saved>
+				<savedArticle results={this.state.article}></savedArticle>
 			</div>
 			 
 		)

@@ -21,9 +21,20 @@ var savedArticles = React.createClass({
 	render:function() {		
 		return (
 			<div>
-				<div>{this.props.name}</div>
-				<div>{this.props.date}</div>				
-				<div>{this.props.url}</div>		
+				<div className="row">
+					<div className="col-sm-12">
+					<br/>
+						<div className="panel panel-primary">
+							<div className="panel-heading">
+								<h3 className="panel-title"><strong><i className="fa fa-table"></i>Saved Articles</strong></h3>
+							</div>
+								{savedArticle}
+								// <div>{this.props.name}</div>
+								// <div>{this.props.date}</div>				
+								// <div>{this.props.url}</div>									
+						</div>
+					</div>
+				</div>
 			</div>
 		)
 	} 

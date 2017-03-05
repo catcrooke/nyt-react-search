@@ -3,6 +3,7 @@
 // // require helpers file 
 var helpers = require('../utils/helpers');
 var React = require("react");
+var Article = require('./article.js');
 
 var savedArticle = React.createClass({ 
 
@@ -18,9 +19,10 @@ var savedArticle = React.createClass({
 	render:function() {		
 		return (
 			<div>
-				<div>{this.props.name}</div>
-				<div>{this.props.date}</div>				
-				<div>{this.props.url}</div>	
+				{Article}
+				// <div>{this.props.name}</div>
+				// <div>{this.props.date}</div>				
+				// <div>{this.props.url}</div>	
 			</div>
 		)
 	} 
