@@ -5,16 +5,16 @@ var bodyParser = require('body-parser');
 var express = require('express');
 var router = express.Router();
 
-// * `/api/saved` (get) - your components will use this to query MongoDB for all saved articles
-router.get('/api/saved', function(request, response){
-	// newArticle.find(function (err, doc) {
-  	if (err) return console.error(err);
- //  	console.log(doc);
-	// });
-	newArticle.find({}}).exec(callback);
+// // * `/api/saved` (get) - your components will use this to query MongoDB for all saved articles
+// router.get('/api/saved', function(request, response){
+// 	// newArticle.find(function (err, doc) {
+//   	if (err) return console.error(err);
+//  //  	console.log(doc);
+// 	// });
+// 	newArticle.find({}}).exec(callback);
 
 
-}); 
+// }); 
 
 //  * `/api/saved` (post) - your components will use this to save an article to the database
 router.post('/api/saved', function(request, response){
