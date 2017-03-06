@@ -5,7 +5,7 @@ var mongoose = require("mongoose");
 mongoose.Promise = Promise;
 
 // Database configuration with mongoose
-mongoose.connect("mongodb://localhost/news");
+mongoose.connect("mongodb://localhost/nytsearch");
 var db = mongoose.connection;
 
 // Show any mongoose errors

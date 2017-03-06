@@ -5,17 +5,16 @@ var bodyParser = require('body-parser');
 var express = require('express');
 var router = express.Router();
 
-//  * `*` (get) - will load your single HTML page (with ReactJS) in public/index.html.
-// Main "/" route. Will redirect to our rendered react application
-// React app will control the application, can use * instead of /
-
-
 // * `/api/saved` (get) - your components will use this to query MongoDB for all saved articles
-// router.get('/api/saved', function(request, response){
-// 	// finding articles .find
+router.get('/api/saved', function(request, response){
+	// newArticle.find(function (err, doc) {
+  	if (err) return console.error(err);
+ //  	console.log(doc);
+	// });
+	newArticle.find({}}).exec(callback);
 
 
-// });
+}); 
 
 //  * `/api/saved` (post) - your components will use this to save an article to the database
 router.post('/api/saved', function(request, response){
@@ -24,12 +23,8 @@ router.post('/api/saved', function(request, response){
 	var newArticle = new Article(request.body);
 
 	newArticle.save(function(err, doc) {
-		if(err) { throw err; 
-			} else {
-				response.send(doc._id);
-			}
-
-		
+		if(err) throw err; 
+		response.send(doc._id);
 	});
 
 });
@@ -41,6 +36,9 @@ router.post('/api/saved', function(request, response){
 
 // });
 
+//  * `*` (get) - will load your single HTML page (with ReactJS) in public/index.html.
+// Main "/" route. Will redirect to our rendered react application
+// React app will control the application, can use * instead of /
 router.get('*', function (req, res){
 	res.sendFile(__dirname + "/public/index.html");
 });

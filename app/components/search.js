@@ -16,8 +16,6 @@ var Search = React.createClass({
 		e.preventDefault()
 		console.log(e)
 		this.props.getQuery(this.state.term, this.state.start, this.state.end)
-
-		// })
 	},
 	onChange: function(e) {
 		console.log('changing');
