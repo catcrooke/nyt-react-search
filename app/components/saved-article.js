@@ -5,7 +5,7 @@ var helpers = require('../utils/helpers');
 var React = require("react");
 var Article = require('./article.js');
 
-var savedArticle = React.createClass({ 
+var SavedArticle = React.createClass({ 
 
 	onClick: function(e) {
 		console.log('changing');
@@ -28,4 +28,4 @@ var savedArticle = React.createClass({
 	} 
 });
 
-module.exports = savedArticle;
+module.exports = SavedArticle;

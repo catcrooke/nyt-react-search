@@ -5,9 +5,9 @@
 // // require helpers file 
 var helpers = require('../utils/helpers');
 var React = require("react");
-var savedArticle = require('./saved'); 
+var SavedArticle = require('./saved-article'); 
 
-var savedArticles = React.createClass({ 
+var SavedArticles = React.createClass({ 
 
 	onClick: function(e) {
 		console.log('changing');
@@ -18,7 +18,10 @@ var savedArticles = React.createClass({
 		updatedState[id] = value;
 		this.setState(updatedState);
 	},
-	render:function() {		
+	render:function() {	
+
+
+
 		return (
 			<div>
 				<div className="row">
@@ -28,10 +31,10 @@ var savedArticles = React.createClass({
 							<div className="panel-heading">
 								<h3 className="panel-title"><strong><i className="fa fa-table"></i>Saved Articles</strong></h3>
 							</div>
-								{savedArticle}
-								// <div>{this.props.name}</div>
-								// <div>{this.props.date}</div>				
-								// <div>{this.props.url}</div>									
+								{SavedArticle}
+								<div>{this.props.name}</div>
+								<div>{this.props.date}</div>				
+								<div>{this.props.url}</div>									
 						</div>
 					</div>
 				</div>
@@ -40,4 +43,4 @@ var savedArticles = React.createClass({
 	} 
 });
 
-module.exports = savedArticles;
+module.exports = SavedArticles;

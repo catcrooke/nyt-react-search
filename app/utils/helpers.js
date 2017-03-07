@@ -11,9 +11,6 @@ var helpers = {
 			'start': start,
 			'end': end
 		};
-		// params.term = term;
-		// params.start = start;
-		// params.end = end;
 
 		// Based on the queryTerm we will create a queryURL 
 		var queryURLBase = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + NYT_API_KEY + "&q=" + term;// + "&begin_date=" + start + "&end_date=" + end;
@@ -30,8 +27,10 @@ var helpers = {
 			});
 	},
 
-	getSaved: function() {
+	getSaved: function(title, date, url) {
 
+		return axios.get('/api/saved', newArticle);
+		
 	},
 
 	postSaved: function(title, date, url) {
@@ -39,7 +38,7 @@ var helpers = {
 
 		return axios.post('/api/saved', newArticle)
 					.then(function(results) {
-						return results;
+						return results.data;
 					});
 	}
 	//postSaved, and deleteSaved functions

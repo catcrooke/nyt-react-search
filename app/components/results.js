@@ -5,11 +5,11 @@ var Article = require('./article');
 var Results = React.createClass({ 
 
 	render:function() {	
-
+		var results = this;
 
 		console.log(this.props.result);
 		var articles = this.props.results.map(function (article, index){
-			return (<Article name={article.headline.main} key={index} date={article.pub_date} url={article.web_url}  />)
+			return (<Article name={article.headline.main} key={index} date={article.pub_date} url={article.web_url} savedQuery={results.props.savedQuery} />)
 		});
 
 		return(

@@ -19,22 +19,23 @@ var Article = React.createClass({
 	},
 	onClick: function(e) {
 	
-		console.log(this.state.title)
+		this.props.savedQuery(this.state);
+
 		// helpers.postSaved(this.state.title, this.state.url, this.state.date).then(function(data) {
 		// 	console.log(data);
 
 		// });
 	
-		var newArticle = { title: this.state.title, date: this.state.date, url: this.state.url };
+		// var newArticle = { title:};
 
-		axios
-			.post('/api/saved', newArticle)
-			.then(function(results) {
-				console.log(results);
-			})
-			.catch(function (error) {
-    			console.log(error);
-  			}.bind(this));
+		// axios
+		// 	.post('/api/saved', newArticle)
+		// 	.then(function(results) {
+		// 		console.log(results);
+		// 	})
+		// 	.catch(function (error) {
+  //   			console.log(error);
+  // 			}.bind(this));
 		
 	},
 	render:function() {					

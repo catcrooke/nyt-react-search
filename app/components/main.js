@@ -4,13 +4,16 @@ var helpers = require('../utils/helpers');
 var React = require('react');
 var Article = require('./article');
 var Results = require('./results');
-var savedArticle = require('./saved');
+var SavedArticle = require('./saved-article');
 var Search = require('./search');
-var savedArticles = require('./savedarticles');
+var SavedArticles = require('./savedarticles');
 
 var Main = React.createClass({
 	getInitialState: function() {
-    	return {results: []};	
+    	return {
+    		results: [], 
+    		saved: []
+    	};	
   	},
 
 	getQuery: function(term, start, end){
@@ -20,6 +23,12 @@ var Main = React.createClass({
 		}.bind(this));
 	},
 
+	savedQuery: function(state){
+		helpers.postSaved(state.title, state.date, state.url).then(function(result){
+			console.log(result);
+			this.setState({saved: [result]});
+		}.bind(this));
+	},
 	render: function() {
 		return (
 			<div> 
@@ -36,8 +45,8 @@ var Main = React.createClass({
 				  </div>
 				</nav>		
 				<Search getQuery={this.getQuery}></Search>
-				<Results results={this.state.results}></Results>
-				<Article></Article>
+				<Results results={this.state.results} savedQuery={this.savedQuery}></Results>
+				<SavedArticles saved={this.state.saved}></SavedArticles>
 			</div>
 			 
 		)

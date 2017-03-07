@@ -24,7 +24,7 @@ router.post('/api/saved', function(request, response){
 
 	newArticle.save(function(err, doc) {
 		if(err) throw err; 
-		response.send(doc._id);
+		response.send(doc);
 	});
 
 });
