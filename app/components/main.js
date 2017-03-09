@@ -2,11 +2,10 @@
 
 var helpers = require('../utils/helpers');
 var React = require('react');
-var Article = require('./article');
 var Results = require('./results');
-var SavedArticle = require('./saved-article');
+// var SavedArticle = require('./saved-article');	
 var Search = require('./search');
-var SavedArticles = require('./savedarticles');
+var SavedArticles = require('./saved-articles');
 
 var Main = React.createClass({
 	getInitialState: function() {
@@ -30,6 +29,7 @@ var Main = React.createClass({
 		}.bind(this));
 	},
 	render: function() {
+
 		return (
 			<div> 
 				<div className="jumbotron">
@@ -47,6 +47,7 @@ var Main = React.createClass({
 				<Search getQuery={this.getQuery}></Search>
 				<Results results={this.state.results} savedQuery={this.savedQuery}></Results>
 				<SavedArticles saved={this.state.saved}></SavedArticles>
+			
 			</div>
 			 
 		)

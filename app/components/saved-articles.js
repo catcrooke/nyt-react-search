@@ -1,4 +1,4 @@
-// plural versio of article component above saved
+// plural version of article component above saved
 
 // * **Saved** - displays  all of the  Saved Articles that were searched and stored in the database
 
@@ -18,9 +18,22 @@ var SavedArticles = React.createClass({
 		updatedState[id] = value;
 		this.setState(updatedState);
 	},
+
+	// getInitialState() {
+		
+	// }
+
 	render:function() {	
 
+		var savedArticles = this.props.saved.map(function (savedArticle, index){
+			console.log(savedArticle);
 
+			return <SavedArticle
+				name={savedArticle.title} 
+				key={index} 
+				date={savedArticle.date} 
+				url={savedArticle.url}  />;
+		});	
 
 		return (
 			<div>
@@ -31,10 +44,7 @@ var SavedArticles = React.createClass({
 							<div className="panel-heading">
 								<h3 className="panel-title"><strong><i className="fa fa-table"></i>Saved Articles</strong></h3>
 							</div>
-								{SavedArticle}
-								<div>{this.props.name}</div>
-								<div>{this.props.date}</div>				
-								<div>{this.props.url}</div>									
+								{savedArticles}							
 						</div>
 					</div>
 				</div>

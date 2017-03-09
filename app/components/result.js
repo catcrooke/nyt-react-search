@@ -2,7 +2,7 @@ var React = require("react");
 var helpers = require('../utils/helpers');
 var axios = require('axios');
 
-var Article = React.createClass({ 
+var Result = React.createClass({ 
 	getInitialState: function() {
 		return {
 			title: "",
@@ -50,6 +50,6 @@ var Article = React.createClass({
 	} 
 });
 
-module.exports = Article;
+module.exports = Result;
 
 

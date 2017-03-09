@@ -1,6 +1,6 @@
 var React = require("react");
 var helpers = require('../utils/helpers');
-var Article = require('./article');
+var Result = require('./result');
 
 var Results = React.createClass({ 
 
@@ -9,7 +9,7 @@ var Results = React.createClass({
 
 		console.log(this.props.result);
 		var articles = this.props.results.map(function (article, index){
-			return (<Article name={article.headline.main} key={index} date={article.pub_date} url={article.web_url} savedQuery={results.props.savedQuery} />)
+			return (<Result name={article.headline.main} key={index} date={article.pub_date} url={article.web_url} savedQuery={results.props.savedQuery} />)
 		});
 
 		return(
