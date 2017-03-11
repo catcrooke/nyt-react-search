@@ -1,6 +1,7 @@
 // Dependencies
 var express = require("express");
 var bodyParser = require("body-parser");
+var methodOverride = require("method-override");
 
 
 // Initialize Express
@@ -12,6 +13,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
+// changes methods in forms from posts to puts
+app.use(methodOverride('_method'));
 
 // Set up a static folder (public) for our web app
 app.use(express.static('./public'));

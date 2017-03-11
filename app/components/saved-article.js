@@ -1,9 +1,7 @@
 // * **Saved** - displays one Saved Article that was searched and stored in the database
-
-// // require helpers file 
+// require helpers file 
 var helpers = require('../utils/helpers');
 var React = require("react");
-// var Result = require('./result.js');
 
 var SavedArticle = React.createClass({ 
 
@@ -15,20 +13,25 @@ var SavedArticle = React.createClass({
 		var updatedState = {};
 		updatedState[id] = value;
 		this.setState(updatedState);
+		
+		if(!valid) {
+      	e.preventDefault();
+    }
 	},
-	render:function() {		
+	render:function() {
+		console.log(this)
 		return (
-			<div>
-				<div>
-					<div className="col-md-8">
-						<div>{this.props.name}</div>
-						<div>{this.props.date}</div>				
-						<div>{this.props.url}</div>
-					</div>
+			<div>		
+				<div className="col-md-8">
+					<div>{this.props.name}</div>
+					<div>{this.props.date}</div>				
+					<div>{this.props.url}</div>
+				</div>
+				<form method="POST" action={"/api/"+this.props.identifier+"?_method=DELETE"} >
 					<div className="col-md-4">
-						<button>Delete</button>
+						<button onClick>Delete</button>
 					</div>
-				</div>	
+				</form>
 			</div>
 		)
 	} 
@@ -36,4 +39,3 @@ var SavedArticle = React.createClass({
 });
 
 module.exports = SavedArticle;
-

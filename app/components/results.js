@@ -9,7 +9,7 @@ var Results = React.createClass({
 
 		console.log(this.props.result);
 		var articles = this.props.results.map(function (article, index){
-			return (<Result name={article.headline.main} key={index} date={article.pub_date} url={article.web_url} savedQuery={results.props.savedQuery} />)
+			return (<Result name={article.headline.main} date={article.pub_date} url={article.web_url} savedQuery={results.props.savedQuery} />)
 		});
 
 		return(

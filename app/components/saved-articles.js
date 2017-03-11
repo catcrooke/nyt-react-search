@@ -10,31 +10,22 @@ var SavedArticle = require('./saved-article');
 var SavedArticles = React.createClass({ 
 
 	onClick: function(e) {
-		console.log('changing');
 		var value = e.target.value;
 		var id = e.target.id;
-			
 		var updatedState = {};
 		updatedState[id] = value;
 		this.setState(updatedState);
 	},
 
-	// getInitialState() {
-		
-	// }
-
 	render:function() {	
-
-		var savedArticles = this.props.saved.map(function (savedArticle, index){
-			console.log(savedArticle);
-
+		var savedArticles = this.props.saved.map(function (savedArticle){
 			return <SavedArticle
-				name={savedArticle.title} 
-				key={index} 
-				date={savedArticle.date} 
-				url={savedArticle.url} />;
-		});	
-
+				name={savedArticle.title}
+				identifier={savedArticle._id}
+				url={savedArticle.url}
+				date={savedArticle.date}
+			 ></SavedArticle>
+		});
 		return (
 			<div>
 				<div className="row">
@@ -44,7 +35,7 @@ var SavedArticles = React.createClass({
 							<div className="panel-heading">
 								<h3 className="panel-title"><strong><i className="fa fa-table"></i>Saved Articles</strong></h3>
 							</div>
-								{savedArticles}							
+							{savedArticles}
 						</div>
 					</div>
 				</div>
