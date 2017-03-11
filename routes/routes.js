@@ -7,14 +7,21 @@ var router = express.Router();
 
 // // * `/api/saved` (get) - your components will use this to query MongoDB for all saved articles
 // router.get('/api/saved', function(request, response){
-// 	// newArticle.find(function (err, doc) {
+// 	Article.find(function (err, doc) {
 //   	if (err) return console.error(err);
-//  //  	console.log(doc);
-// 	// });
-// 	newArticle.find({}}).exec(callback);
+//   	console.log(doc);
+// 	});
+// 	Article.find({}).exec(callback);
 
 
 // }); 
+
+router.get('/api/saved', function (request, response){
+	Article.find({}).then(function (results){
+		response.json(results);
+
+	});
+});
 
 //  * `/api/saved` (post) - your components will use this to save an article to the database
 router.post('/api/saved', function(request, response){

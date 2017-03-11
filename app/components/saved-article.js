@@ -19,10 +19,9 @@ var SavedArticle = React.createClass({
 	render:function() {		
 		return (
 			<div>
-				
-					<div>{this.props.name}</div>
-					<div>{this.props.date}</div>				
-					<div>{this.props.url}</div>	
+				<div>{this.props.name}</div>
+				<div>{this.props.date}</div>				
+				<div>{this.props.url}</div>	
 			</div>
 		)
 	} 

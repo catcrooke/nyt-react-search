@@ -27,9 +27,14 @@ var helpers = {
 			});
 	},
 
-	getSaved: function(title, date, url) {
 
-		return axios.get('/api/saved', newArticle);
+
+	getSaved: function() {
+
+		return axios.get('/api/saved').then( function (results){
+			console.log(results);
+			return results.data;
+		});
 		
 	},
 
