@@ -6,16 +6,6 @@ var express = require('express');
 var router = express.Router();
 
 // // * `/api/saved` (get) - your components will use this to query MongoDB for all saved articles
-// router.get('/api/saved', function(request, response){
-// 	Article.find(function (err, doc) {
-//   	if (err) return console.error(err);
-//   	console.log(doc);
-// 	});
-// 	Article.find({}).exec(callback);
-
-
-// }); 
-
 router.get('/api/saved', function (request, response){
 	Article.find({}).then(function (results){
 		response.json(results);
@@ -44,8 +34,6 @@ router.post('/api/saved', function(request, response){
 // });
 
 //  * `*` (get) - will load your single HTML page (with ReactJS) in public/index.html.
-// Main "/" route. Will redirect to our rendered react application
-// React app will control the application, can use * instead of /
 router.get('*', function (req, res){
 	res.sendFile(__dirname + "/public/index.html");
 });

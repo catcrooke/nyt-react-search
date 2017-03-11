@@ -19,12 +19,21 @@ var SavedArticle = React.createClass({
 	render:function() {		
 		return (
 			<div>
-				<div>{this.props.name}</div>
-				<div>{this.props.date}</div>				
-				<div>{this.props.url}</div>	
+				<div>
+					<div className="col-md-8">
+						<div>{this.props.name}</div>
+						<div>{this.props.date}</div>				
+						<div>{this.props.url}</div>
+					</div>
+					<div className="col-md-4">
+						<button>Delete</button>
+					</div>
+				</div>	
 			</div>
 		)
 	} 
+
 });
 
 module.exports = SavedArticle;
+

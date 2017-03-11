@@ -32,7 +32,7 @@ var SavedArticles = React.createClass({
 				name={savedArticle.title} 
 				key={index} 
 				date={savedArticle.date} 
-				url={savedArticle.url}  />;
+				url={savedArticle.url} />;
 		});	
 
 		return (
